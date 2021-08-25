@@ -7,7 +7,24 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
-    "vue": "^3.0.0"
+    "@fortawesome/fontawesome-svg-core": "^1.2.35",
+    "@fortawesome/free-brands-svg-icons": "^5.15.3",
+    "@fortawesome/free-solid-svg-icons": "^5.15.3",
+    "@fortawesome/vue-fontawesome": "^3.0.0-4",
+    "@googlemaps/js-api-loader": "^1.12.1",
+    "animate.css": "^4.1.1",
+    "axios": "^0.21.1",
+    "firebase": "^8.7.1",
+    "material-design-icons": "^3.0.1",
+    "materialize-css": "^1.0.0-rc.2",
+    "vee-validate": "^4.4.7",
+    "vue": "^3.0.0",
+    "vue-fontawesome": "0.0.2",
+    "vue-router": "^4.0.10",
+    "vue3-carousel": "^0.1.23",
+    "vue3-google-map": "^0.8.0",
+    "vuex": "^4.0.2",
+    "yup": "^0.32.9"
   },
   "devDependencies": {
     "@vue/cli-service": "~4.5.0",

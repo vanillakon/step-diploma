@@ -1,26 +1,46 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <the-navbar :class="{ 'change-nav': scrollPosition > 50 }"></the-navbar>
+  <router-view></router-view>
+  <back-to-top
+    :class="{
+      'change-back-to-top': scrollPosition > 5,
+      animate__slideInRight: scrollPosition > 5,
+    }"
+    @action="backToUp"
+  ></back-to-top>
+  <the-footer></the-footer>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import { ref, onMounted } from "vue";
+import TheNavbar from "./components/TheNavbar.vue";
+import TheFooter from "./components/TheFooter.vue";
+import BackToTop from "./components/ui/BackToTop.vue";
 export default {
-  name: 'App',
+  setup() {
+    const scrollPosition = ref(null);
+    const updateScroll = () => {
+      scrollPosition.value = window.scrollY;
+    };
+    const backToUp = () => {
+      window.scrollTo(0, 0);
+    };
+    onMounted(() => {
+      window.addEventListener("scroll", updateScroll);
+    });
+    return {
+      scrollPosition,
+      updateScroll,
+      backToUp,
+    };
+  },
   components: {
-    HelloWorld
-  }
-}
+    TheNavbar,
+    TheFooter,
+    BackToTop,
+  },
+};
 </script>
-
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+@import "~materialize-css/dist/css/materialize.min.css";
 </style>
